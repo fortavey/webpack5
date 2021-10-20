@@ -1,0 +1,9 @@
+@import './const/normalize.scss';
+@import './font_styles/roboto.scss';
+
+body {
+  background-color: red;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  background: linear-gradient(to top, black, white);
+}
