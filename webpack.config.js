@@ -15,6 +15,7 @@ const conf = {
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
+      vue: 'vue/dist/vue.js',
     },
   },
   devServer: {
@@ -71,11 +72,7 @@ module.exports = (env, options) => {
 
   conf.devtool = isProd ? false : 'eval-cheap-module-source-map'
 
-  const vueDev = './src/js/lib/vueDev.js'
-  const vueProd = './src/js/lib/vueProd.js'
-
   conf.entry = {
-    vue: isProd ? vueProd : vueDev,
     main: './src/main.js',
   }
 
