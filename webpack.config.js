@@ -15,7 +15,6 @@ const conf = {
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
-      vue: 'vue/dist/vue.js',
     },
   },
   devServer: {
@@ -43,6 +42,10 @@ const conf = {
       },
       {
         test: /\.(ttf|woff|woff2|eot)$/,
+        use: ['file-loader'],
+      },
+      {
+        test: /\.(png|jpg)$/,
         use: ['file-loader'],
       },
     ],
@@ -74,6 +77,12 @@ module.exports = (env, options) => {
 
   conf.entry = {
     main: './src/main.js',
+  }
+
+  conf.resolve.alias = {
+    '@vue': isProd
+      ? path.resolve(__dirname, 'src/js/lib/prod')
+      : path.resolve(__dirname, 'src/js/lib/dev'),
   }
 
   return conf
